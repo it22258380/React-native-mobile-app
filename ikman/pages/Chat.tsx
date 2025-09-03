@@ -14,7 +14,7 @@ export default function Chat() {
       <View style={styles.noChatContainer}>
         {/* Local image */}
         <Image
-          source={require("../assets/images/no-chat.png")}
+          source={require("../assets/images/chat.png")}
           style={styles.image}
           resizeMode="contain"
         />
@@ -40,7 +40,7 @@ export default function Chat() {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#22A519",
+    backgroundColor: "#009877",
     paddingVertical: 15,
     paddingHorizontal: 16,
   },

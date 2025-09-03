@@ -68,7 +68,7 @@ export default function Category() {
   return (
     <View style={{ flex: 1, backgroundColor: "#f9f9f9" }}>
       {/* Header with search */}
-      <View style={{ backgroundColor: "#0b792efe", padding: 16 }}>
+      <View style={{ backgroundColor: "#009877", padding: 16 }}>
         <View
           style={{
             flexDirection: "row",

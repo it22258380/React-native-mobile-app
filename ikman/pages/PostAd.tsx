@@ -5,19 +5,19 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  ScrollView,
+  ScrollView,Image
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import BottomNav from "@/components/BottomNav"; // ✅ Import BottomNav
+import BottomNav from "@/components/BottomNav"; 
 
 export default function PostAd() {
   const categories = [
-    { name: "Cars", icon: "car-outline", color: "#4CAF50" },
-    { name: "Motorbikes", icon: "bicycle-outline", color: "#E91E63" },
-    { name: "Mobile Phones", icon: "phone-portrait-outline", color: "#2196F3" },
-    { name: "Property", icon: "home-outline", color: "#FF5722" },
-    { name: "Home & Garden", icon: "flower-outline", color: "#009688" },
-    { name: "Jobs", icon: "briefcase-outline", color: "#3F51B5" },
+    { id: "1", name: "Mobiles", icon: require("../assets/images/mobile.png") },
+    { id: "2", name: "Electronics", icon: require("../assets/images/electronics.png") },
+    { id: "3", name: "Vehicles", icon: require("../assets/images/vehicles.png") },
+    { id: "4", name: "Property", icon: require("../assets/images/property.png") },
+    { id: "5", name: "Home & Garden", icon: require("../assets/images/garden.png") },
+    { id: "6", name: "Animals", icon: require("../assets/images/animals.png") },
   ];
 
   return (
@@ -30,19 +30,21 @@ export default function PostAd() {
 
         {/* Welcome */}
         <View style={styles.welcomeBox}>
-          <Text style={styles.welcomeText}>Welcome Shehar Mavitha!</Text>
+          <Text style={styles.welcomeText}>Welcome Sasanka Akash!</Text>
           <Text style={styles.subText}>Choose an option below to post an ad</Text>
         </View>
 
         {/* Categories Grid */}
-        <View style={styles.grid}>
-          {categories.map((item, index) => (
-            <TouchableOpacity key={index} style={styles.card}>
-              <Icon name={item.icon} size={30} color={item.color} />
-              <Text style={styles.cardText}>{item.name}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
+       {/* Categories Grid */}
+<View style={styles.grid}>
+  {categories.map((item, index) => (
+    <TouchableOpacity key={index} style={styles.card}>
+      <Image source={item.icon} style={styles.cardImage} />
+      <Text style={styles.cardText}>{item.name}</Text>
+    </TouchableOpacity>
+  ))}
+</View>
+
 
         {/* Extra Options */}
         <TouchableOpacity style={styles.option}>
@@ -71,7 +73,7 @@ export default function PostAd() {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#009688",
+    backgroundColor: "#009877",
     paddingVertical: 15,
     paddingHorizontal: 20,
   },
@@ -144,4 +146,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     color: "#999",
   },
+  cardImage: {
+  width: 40,
+  height: 40,
+  resizeMode: "contain",
+  marginBottom: 8,
+},
+
 });

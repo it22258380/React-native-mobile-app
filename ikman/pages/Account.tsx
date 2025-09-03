@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import BottomNav from "@/components/BottomNav"; // ✅ Import BottomNav
+import BottomNav from "@/components/BottomNav"; 
 
 export default function Account() {
   return (
@@ -9,7 +9,7 @@ export default function Account() {
       {/* Header */}
       <View
         style={{
-          backgroundColor: "#22A519", // Ikman green
+          backgroundColor: "#009877",
           paddingVertical: 15,
           paddingHorizontal: 16,
           flexDirection: "row",
@@ -26,7 +26,7 @@ export default function Account() {
       {/* Content */}
       <ScrollView style={{ flex: 1, padding: 10 }}>
         <Text style={{ fontSize: 16, fontWeight: "bold", marginBottom: 15 }}>
-          Shehar Mavitha
+          Sasanka Akash
         </Text>
 
         {[
@@ -79,7 +79,7 @@ export default function Account() {
         </TouchableOpacity>
       </ScrollView>
 
-      {/* ✅ Bottom Navigation */}
+      
       <BottomNav />
     </View>
   );

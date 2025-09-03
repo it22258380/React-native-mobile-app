@@ -9,17 +9,19 @@ import {
   TouchableOpacity,
   Dimensions,
   ListRenderItem,
+  ImageSourcePropType,
 } from "react-native";
+import BottomNav from "@/components/BottomNav";
 
 const { width } = Dimensions.get("window");
-const ITEM_WIDTH = (width - 36) / 2; // 2 columns with margin
+const ITEM_WIDTH = (width - 36) / 2;
 
-// Define a type for product items
+
 type Product = {
   id: string;
   title: string;
   price: string;
-  image: string;
+  image: ImageSourcePropType;
 };
 
 // Sample data
@@ -28,32 +30,32 @@ const data: Product[] = [
     id: "1",
     title: "SEGOTEP GANK 240S GAMING CASING TOWER",
     price: "Rs 12,500",
-    image: "https://via.placeholder.com/300x200.png?text=Gaming+Casing",
+    image: require("../assets/images/segtop.png"),
   },
   {
     id: "2",
     title: "Best Residential Land for Sale in Athurugiriya",
     price: "Rs 1,000,000 per perch",
-    image: "https://via.placeholder.com/300x200.png?text=Land+for+Sale",
+    image: require("../assets/images/land.png"),
   },
   {
     id: "3",
     title: "GTX 1060 3GB OC GAMING",
     price: "Rs 65,000",
-    image: "https://via.placeholder.com/300x200.png?text=GTX+1060",
+     image: require("../assets/images/gtx.png"),
   },
   {
     id: "4",
     title: "LOGITECH G102 RGB PROFESSIONAL GAMING MOUSE",
     price: "Rs 7,400",
-    image: "https://via.placeholder.com/300x200.png?text=Logitech+Mouse",
+   image: require("../assets/images/mouse.png"),
   },
 ];
 
-// Product card component with proper typing
+// Product card 
 const ProductCard = ({ item }: { item: Product }) => (
   <TouchableOpacity style={styles.card}>
-    <Image source={{ uri: item.image }} style={styles.image} />
+    <Image source={item.image} style={styles.image} />
     <View style={styles.info}>
       <Text style={styles.title} numberOfLines={2}>
         {item.title}
@@ -70,7 +72,26 @@ export default function Home() {
   );
 
   return (
-    <View style={styles.container}>
+    <View>
+      {/*Header*/}
+   <View style={{ backgroundColor: "#009877", padding: 30 }}>
+  <View
+    style={{
+      flexDirection: "row",
+      height: 1,
+      paddingHorizontal: 16,
+      alignItems: "center",
+    }}
+  >
+    {/* Logo  */}
+    <Image
+      source={require("../assets/images/icon.png")} 
+      style={{ width: 60, height: 100, resizeMode: "contain"}}
+    />
+
+  </View>
+</View>
+
       <FlatList
         data={data}
         numColumns={2}
@@ -79,7 +100,8 @@ export default function Home() {
         columnWrapperStyle={{ justifyContent: "space-between" }}
         contentContainerStyle={{ padding: 12 }}
       />
-    </View>
+      <BottomNav />
+   </View>
   );
 }
 
@@ -101,7 +123,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 120,
+    height: 220,
     resizeMode: "cover",
   },
   info: {
