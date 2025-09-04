@@ -1,20 +1,51 @@
-import { View } from "react-native";
-import {ScrollView} from "react-native";
-//import Chat from "@/pages/Chat";
-//import Category from "@/pages/Category";
-//import Account from "@/pages/Account";
-//import PostAd from "@/pages/PostAd";
-import Home from "@/pages/Home";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 
+// Screens
+import Account from "@/pages/Account";
+import Category from "@/pages/Category";
+import Chat from "@/pages/Chat";
+import Home from "@/pages/Home";
+import PostAd from "@/pages/PostAd";
 
+export type RootStackParamList = {
+  Home: undefined;
+  Category: undefined;
+  Chat: undefined;
+  Account: undefined;
+  Postadd: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function Index() {
   return (
-    <ScrollView>
-      <Home />
-      
-    </ScrollView>
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Category"
+        component={Category}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={Chat}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Account"
+        component={Account}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Postadd"
+        component={PostAd}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
   );
-  
 }
