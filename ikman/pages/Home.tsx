@@ -11,11 +11,11 @@ import {
   ListRenderItem,
   ImageSourcePropType,
 } from "react-native";
+import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
 
 const { width } = Dimensions.get("window");
 const ITEM_WIDTH = (width - 36) / 2;
-
 
 type Product = {
   id: string;
@@ -42,17 +42,17 @@ const data: Product[] = [
     id: "3",
     title: "GTX 1060 3GB OC GAMING",
     price: "Rs 65,000",
-     image: require("../assets/images/gtx.png"),
+    image: require("../assets/images/gtx.png"),
   },
   {
     id: "4",
     title: "LOGITECH G102 RGB PROFESSIONAL GAMING MOUSE",
     price: "Rs 7,400",
-   image: require("../assets/images/mouse.png"),
+    image: require("../assets/images/mouse.png"),
   },
 ];
 
-// Product card 
+// Product card
 const ProductCard = ({ item }: { item: Product }) => (
   <TouchableOpacity style={styles.card}>
     <Image source={item.image} style={styles.image} />
@@ -73,24 +73,8 @@ export default function Home() {
 
   return (
     <View>
-      {/*Header*/}
-   <View style={{ backgroundColor: "#009877", padding: 30 }}>
-  <View
-    style={{
-      flexDirection: "row",
-      height: 1,
-      paddingHorizontal: 16,
-      alignItems: "center",
-    }}
-  >
-    {/* Logo  */}
-    <Image
-      source={require("../assets/images/icon.png")} 
-      style={{ width: 60, height: 100, resizeMode: "contain"}}
-    />
 
-  </View>
-</View>
+     <Header /> 
 
       <FlatList
         data={data}
@@ -100,8 +84,9 @@ export default function Home() {
         columnWrapperStyle={{ justifyContent: "space-between" }}
         contentContainerStyle={{ padding: 12 }}
       />
+
       <BottomNav />
-   </View>
+    </View>
   );
 }
 

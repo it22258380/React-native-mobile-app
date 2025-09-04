@@ -9,7 +9,7 @@ export default function BottomNav() {
   const route = useRoute();
 
   const getColor = (tabName: keyof RootStackParamList) => {
-    return route.name === tabName ? "#0a9d58" : "#808080"; // green for active, grey for inactive
+    return route.name === tabName ? "#0a9d58" : "#808080"; 
   };
 
   const getLabelStyle = (tabName: keyof RootStackParamList) => {
