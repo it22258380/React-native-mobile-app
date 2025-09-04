@@ -73,8 +73,7 @@ export default function Home() {
 
   return (
     <View>
-
-     <Header /> 
+      <Header />
 
       <FlatList
         data={data}

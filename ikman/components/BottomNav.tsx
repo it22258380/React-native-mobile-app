@@ -1,7 +1,11 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import { useNavigation, useRoute, NavigationProp } from "@react-navigation/native";
+import {
+  useNavigation,
+  useRoute,
+  NavigationProp,
+} from "@react-navigation/native";
 import { RootStackParamList } from "@/app/index";
 
 export default function BottomNav() {
@@ -9,7 +13,7 @@ export default function BottomNav() {
   const route = useRoute();
 
   const getColor = (tabName: keyof RootStackParamList) => {
-    return route.name === tabName ? "#0a9d58" : "#808080"; 
+    return route.name === tabName ? "#0a9d58" : "#808080";
   };
 
   const getLabelStyle = (tabName: keyof RootStackParamList) => {
@@ -23,13 +27,19 @@ export default function BottomNav() {
   return (
     <View style={styles.container}>
       {/* Home */}
-      <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Home")}>
+      <TouchableOpacity
+        style={styles.iconContainer}
+        onPress={() => navigation.navigate("Home")}
+      >
         <Icon name="home" size={24} color={getColor("Home")} />
         <Text style={getLabelStyle("Home")}>Home</Text>
       </TouchableOpacity>
 
       {/* Search */}
-      <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Category")}>
+      <TouchableOpacity
+        style={styles.iconContainer}
+        onPress={() => navigation.navigate("Category")}
+      >
         <Icon name="search" size={24} color={getColor("Category")} />
         <Text style={getLabelStyle("Category")}>Search</Text>
       </TouchableOpacity>
@@ -41,20 +51,26 @@ export default function BottomNav() {
           onPress={() => navigation.navigate("Postadd")}
         >
           <View style={styles.postAdInner}>
-            <Icon name="add" size={30} color="#FFC107" /> 
+            <Icon name="add" size={30} color="#FFC107" />
           </View>
         </TouchableOpacity>
         <Text style={styles.postAdLabel}>Post ad</Text>
       </View>
 
       {/* Chat */}
-      <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Chat")}>
+      <TouchableOpacity
+        style={styles.iconContainer}
+        onPress={() => navigation.navigate("Chat")}
+      >
         <Icon name="chatbubble" size={24} color={getColor("Chat")} />
         <Text style={getLabelStyle("Chat")}>Chat</Text>
       </TouchableOpacity>
 
       {/* Account */}
-      <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Account")}>
+      <TouchableOpacity
+        style={styles.iconContainer}
+        onPress={() => navigation.navigate("Account")}
+      >
         <Icon name="person" size={24} color={getColor("Account")} />
         <Text style={getLabelStyle("Account")}>Account</Text>
       </TouchableOpacity>
@@ -76,7 +92,7 @@ const styles = StyleSheet.create({
   },
   postAdWrapper: {
     alignItems: "center",
-    marginTop: -30, 
+    marginTop: -30,
   },
   postAdOuter: {
     backgroundColor: "#FFC107",

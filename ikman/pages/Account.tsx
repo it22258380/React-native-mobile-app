@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import BottomNav from "@/components/BottomNav"; 
+import BottomNav from "@/components/BottomNav";
 
 export default function Account() {
   return (
@@ -79,7 +79,6 @@ export default function Account() {
         </TouchableOpacity>
       </ScrollView>
 
-      
       <BottomNav />
     </View>
   );
